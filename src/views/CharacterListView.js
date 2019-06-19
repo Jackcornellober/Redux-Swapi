@@ -12,7 +12,7 @@ class CharacterListView extends React.Component {
   }
 
   componentDidMount() {
-    console.log('ListView Mounted')
+    console.log('characterListView Mounted')
     this.props.getCharacters()
   }
 
@@ -23,19 +23,22 @@ class CharacterListView extends React.Component {
       <Loader type="Ball-Triangle" color="#00BFFF" height="90" width="60" />
       )
     }
-    // if (this.props.characters.length > 0)
-    // return (
-    //   <div className="CharactersList_wrapper">
-    //     <CharacterList characters={this.props.characters} />
-    //   </div>
-    // );
+
+
+    if (this.props.characters){
+    return (
+      <div className="CharactersList_wrapper">
+        <CharacterList characters={this.props.characters} />
+      </div>
+    );
+    } else {return (<div>hello</div>)}
   }
 }
 
 const mapStateToProps = state => ({
-  error: state.error,
-  isFetching: state.isFetching,
-  characters: state.characters
+  error: state.charsReducer.error,
+  isFetching: state.charsReducer.isFetching,
+  characters: state.charsReducer.characters
 });
 
 // our mapStateToProps needs to have two properties inherited from state

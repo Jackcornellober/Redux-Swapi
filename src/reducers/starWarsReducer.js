@@ -6,7 +6,7 @@ import {FETCH_DATA_ERROR} from "../actions";
 
 const initialState = {
   characters: [],
-  isFetching: true,
+  isFetching: false,
   error: '',
   // Array characters, Boolean fetching, null error.
 };
